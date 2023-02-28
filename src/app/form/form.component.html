@@ -1,112 +1,94 @@
 <div class="container-fluid">
-   <div class="row">
-          <div class="col-6">
-              <form class="border border-dark rounded bg-dark mt-3 form-main"  name="signin" #signin="ngForm" (ngSubmit)="onSubmit()" >
-                  <h1 class="text-center mb-3 text-info mt-3">Registration Form</h1>
-                  <div  class="div-tag">
-                    <div class="form-floating mb-3 mt-3">
-                      <input type="text" class="form-control" id="userName" placeholder="Shaurya" ngModel name="name" [(ngModel)]="UserName.name" #name="ngModel" required minlength="5" maxlength="20" pattern="^[ a-zA-Z]+$">
-                      <label for="userName" >Name</label>
-                    </div>
-                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
-                        <div *ngIf="name.errors?.['pattern']">
-                            valid name is required.
-                        </div>
-                        <div *ngIf="name.errors?.['required']">
-                            Name is required.
-                        </div>
-                        <div *ngIf="name.errors?.['minlength']">
-                            Name must be at least 5 characters long.
-                        </div>
-                        <div *ngIf="name.errors?.['maxlength']">
-                            Name can be max 20 characters long.
-                        </div>
-                   </div>
-                  <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingCollegeName" placeholder="GLA" name="collegeName" ngModel [(ngModel)]="UserName.collegeName" minlength="5" maxlength="20" #collegeName="ngModel" required pattern="^[ a-zA-Z]+$">
-                        <label for="floatingCollegeName">College</label>
-                  </div>
-                  <div *ngIf="collegeName.invalid && (collegeName.dirty || collegeName.touched)" class="text-danger">
-                        <div *ngIf="collegeName.errors?.['pattern']">
-                          Please enter a valid Name!!
-                        </div>
-                        <div *ngIf="collegeName.errors?.['required']">
-                          College Name is required.
-                        </div>
-                        <div *ngIf="collegeName.errors?.['minlength']">
-                          College Name must be at least 5 characters long.
-                        </div>
-                        <div *ngIf="collegeName.errors?.['maxlength']">
-                          College Name mcan be max 20 characters long.
-                        </div>
-                  </div>
-                  <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingEmail" placeholder="shivam@example.com"  ngModel [(ngModel)]="UserName.gmail" name="gmail" #gmail="ngModel" >
-                        <label for="floatingEmail">Email</label>
-                  </div>
-                  <!-- <div *ngIf="gmail.invalid && (gmail.dirty || gmail.touched)" class="text-danger">
-                        <div *ngIf="gmail.errors?.['pattern']">
-                             Please enter a valid email!!
-                        </div>
-                        <div *ngIf="gmail.errors?.['required']">
-                           Email is required.
-                        </div>
-                        <div *ngIf="gmail.errors?.['minlength']">
-                           Email must be at least 10 characters long.
-                        </div>
-                        <div *ngIf="gmail.errors?.['maxlength']">
-                          Email can be max 20 characters long.
-                        </div>
-                  </div> -->
-               
-                <div class="form-floating mb-3">
-                  <label for="degree">Degree</label>
-                  <select class="form-control" id="degree" ngModel [(ngModel)]="UserName.degrees" name="degrees" #degrees="ngModel" required>
-                      <option selected >B.Tech</option>
-                      <option >B.B.A</option>
-                      <option >B.Com</option>
-                      <option >Others</option>
-                  </select>
-                  </div> 
-                
-                <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingSpecialization" placeholder="AI/ML" name="specialization" ngModel [(ngModel)]="UserName.specialization" #specialization="ngModel" required >
-                        <label for="floatingSpecialization">Specialization</label>
-                </div>
-                <!-- <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="text-danger">
-                    <div *ngIf="mobileNumber.errors?.['pattern']">
-                      Please enter a valid mobile number!!
-                    </div>
-                    <div *ngIf="mobileNumber.errors?.['required']">
-                      Mobile Number is required.
-                    </div>
-                    <div *ngIf="mobileNumber.errors?.['maxlength']">
-                      Mobile Number can be  10 characters long.
-                    </div>
-                </div> -->
-                <button type="submit" class="btn btn-danger" style="margin-left:10px;" (click)="submit()" [disabled]="!signin.valid">Submit</button>
-                <button type="submit" class="btn btn-danger" style="margin-left:10px;" (click)="signin.form.reset()" >Reset</button>
+  <div class="row">
+    <div class="col-6">
+      <form class="border border-dark rounded bg-dark mt-3 form-main" name="signin" #signin="ngForm"
+        (ngSubmit)="onSubmit()">
+        <h1 class="text-center mb-3 text-info mt-3">Registration Form</h1>
+        <div class="div-tag">
+          <div class="form-floating mb-3 mt-3">
+            <input type="text" class="form-control" id="userName" placeholder="Shaurya" ngModel name="name"
+              [(ngModel)]="UserName.name" #name="ngModel" required minlength="5" maxlength="20" pattern="^[ a-zA-Z]+$">
+            <label for="userName">Name</label>
           </div>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+            <div *ngIf="name.errors?.['pattern']">
+              valid name is required.
+            </div>
+            <div *ngIf="name.errors?.['required']">
+              Name is required.
+            </div>
+            <div *ngIf="name.errors?.['minlength']">
+              Name must be at least 5 characters long.
+            </div>
+            <div *ngIf="name.errors?.['maxlength']">
+              Name can be max 20 characters long.
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingCollegeName" placeholder="GLA" name="collegeName"
+              ngModel [(ngModel)]="UserName.collegeName" minlength="5" maxlength="20" #collegeName="ngModel" required
+              pattern="^[ a-zA-Z]+$">
+            <label for="floatingCollegeName">College</label>
+          </div>
+          <div *ngIf="collegeName.invalid && (collegeName.dirty || collegeName.touched)" class="text-danger">
+            <div *ngIf="collegeName.errors?.['pattern']">
+              Please enter a valid Name!!
+            </div>
+            <div *ngIf="collegeName.errors?.['required']">
+              College Name is required.
+            </div>
+            <div *ngIf="collegeName.errors?.['minlength']">
+              College Name must be at least 5 characters long.
+            </div>
+            <div *ngIf="collegeName.errors?.['maxlength']">
+              College Name mcan be max 20 characters long.
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingEmail" placeholder="shivam@example.com" ngModel
+              [(ngModel)]="UserName.gmail" name="gmail" #gmail="ngModel">
+            <label for="floatingEmail">Email</label>
+          </div>
+          <div class="form-floating mb-3">
+            <label for="degree">Degree</label>
+            <select class="form-control" id="degree" ngModel [(ngModel)]="UserName.degrees" name="degrees"
+              #degrees="ngModel" required>
+              <option selected>B.Tech</option>
+              <option>B.B.A</option>
+              <option>B.Com</option>
+              <option>Others</option>
+            </select>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingSpecialization" placeholder="AI/ML"
+              name="specialization" ngModel [(ngModel)]="UserName.specialization" #specialization="ngModel" required>
+            <label for="floatingSpecialization">Specialization</label>
+          </div>
+          <button type="submit" class="btn btn-danger" style="margin-left:10px;" (click)="submit()"
+            [disabled]="!signin.valid">Submit</button>
+          <button type="submit" class="btn btn-danger" style="margin-left:10px;"
+            (click)="signin.form.reset()">Reset</button>
+        </div>
       </form>
     </div>
-        <div class="col-6 ">
-              <table class=" table  rounded mt-5 bg-dark border border-dark" >
-                <thead class="text-info">
-                      <th>Name</th>
-                      <th>College Name</th>
-                      <th>Email</th>
-                      <th>Degree</th>
-                      <th>Specialization</th> 
-                </thead>
-                <tbody *ngFor="let data of userData" class="text-primary">
-                      <td>{{data.name}}</td>
-                      <td>{{data.collegeName}}</td>
-                      <td>{{data.gmail}}</td>
-                      <td>{{data.degrees}}</td>
-                      <td>{{data.specialization}}</td>
-                </tbody>
-              </table>
-          </div>
+    <div class="col-6 ">
+      <table class=" table  rounded mt-5 bg-dark border border-dark">
+        <thead class="text-info">
+          <th>Name</th>
+          <th>College Name</th>
+          <th>Email</th>
+          <th>Degree</th>
+          <th>Specialization</th>
+        </thead>
+        <tbody *ngFor="let data of userData" class="text-primary">
+          <td>{{data.name}}</td>
+          <td>{{data.collegeName}}</td>
+          <td>{{data.gmail}}</td>
+          <td>{{data.degrees}}</td>
+          <td>{{data.specialization}}</td>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
-
